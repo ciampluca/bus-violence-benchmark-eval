@@ -1,0 +1,15 @@
+# @package model
+
+defaults:
+  - common
+
+name: BiConvLSTM-ECCV2018
+module:
+  _target_: models.BiConvLSTM_ECCV2018
+  cache_folder: ${cache_folder}
+  model_pretrained: true    # on Imagenet
+  in_channels: 3
+  out_channels: 1
+  batch_norm: true
+  lstm_mem_size: 256
+  kernel_size: 3

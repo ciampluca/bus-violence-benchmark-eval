@@ -1,0 +1,21 @@
+# @package _global_
+
+data:
+    train: &common
+        _target_: datasets.BinaryViolenceDetectionDataset
+        root: ${hydra:runtime.cwd}/data/RWF-2000/train
+        split: train
+        split_seed: 87
+        num_train_val_samples:
+            - 1280  # num of train videos
+            - 320  # num of validation videos
+        max_num_train_val_sample: 1600
+        num_target_frames: 64
+        in_memory: false
+        batch_size: 0   # useless, will be override by optim.batch_size
+        target: true
+        frame_size: 360
+
+    validation:
+        split: validation
+        <<: *common   # reinsert 'train' block content

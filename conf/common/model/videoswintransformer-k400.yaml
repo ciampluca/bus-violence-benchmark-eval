@@ -1,0 +1,18 @@
+# @package model
+
+defaults:
+  - common
+
+name: VideoSwinTransformer
+module:
+  _target_: models.VideoSwinTransformer
+  cache_folder: ${cache_folder}
+  model_pretrained: True    # on Kinetics-400
+  backbone: swin_base_kinetics400
+  embed_dim: 128
+  depths: [2, 2, 18, 2]
+  num_heads: [4, 8, 16, 32]
+  patch_size: [2, 4, 4]
+  window_size: [8, 7, 7]
+  drop_path_rate: 0.3
+  patch_norm: True

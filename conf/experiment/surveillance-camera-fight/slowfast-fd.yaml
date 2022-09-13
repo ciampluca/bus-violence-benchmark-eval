@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+ - surveillance-camera-fight/common
+ - /common/model: slowfast
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: frame-difference
+
+    validation:
+        <<: *common   # reinsert 'train' block content
+
+        

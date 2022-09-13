@@ -1,0 +1,22 @@
+# @package _global_
+
+data:
+    train: &common
+        _target_: datasets.BinaryViolenceDetectionDataset
+        root: ${hydra:runtime.cwd}/data/real-life-violence
+        split: train
+        split_seed: 87
+        num_train_val_samples:
+            - 1200  # num of train videos
+            - 400  # num of validation videos
+        max_num_train_val_sample: 1600
+        num_test_samples: 400
+        num_target_frames: 48
+        in_memory: false
+        batch_size: 0   # useless, will be override by optim.batch_size
+        target: true
+        frame_size: 256
+
+    validation:
+        split: validation
+        <<: *common   # reinsert 'train' block content

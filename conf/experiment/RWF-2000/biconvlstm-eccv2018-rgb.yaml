@@ -1,0 +1,14 @@
+# @package _global_
+
+defaults:
+ - RWF-2000/common
+ - /common/model: BiConvLSTM-ECCV2018
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: rgb       # Original implementation was with frame difference
+        frame_size: 224
+
+    validation:
+        <<: *common   # reinsert 'train' block content

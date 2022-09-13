@@ -1,0 +1,15 @@
+# @package model
+
+defaults:
+  - common
+
+name: ConvLSTM-AVSS2017
+module:
+  _target_: models.ConvLSTM_AVSS2017
+  cache_folder: ${cache_folder}
+  model_pretrained: true    # on Imagenet
+  in_channels: 3
+  out_channels: 1
+  lstm_mem_size: 256
+  kernel_size: 3
+  device: cuda

@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+ - RWF-2000/common
+ - /common/model: resnet3d18
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: frame-difference
+
+    validation:
+        <<: *common   # reinsert 'train' block content
+
+optim:
+    loss:
+        _target_: torch.nn.BCEWithLogitsLoss
+
+        

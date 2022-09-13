@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+ - RWF-2000/common
+ - /common/model: slowfast
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: frame-difference
+
+    validation:
+        <<: *common   # reinsert 'train' block content
+
+        

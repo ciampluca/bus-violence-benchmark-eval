@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+/runs/
+/.vscode/
+/data/RWF-2000/
+/data/surveillance-camera-fight
+/data/bus-violence
+/data/real-life-violence
+/datasets/trash
+/model_zoo/

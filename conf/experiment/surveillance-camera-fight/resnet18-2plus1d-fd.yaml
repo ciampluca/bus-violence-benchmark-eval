@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+ - surveillance-camera-fight/common
+ - /common/model: resnet2plus1d18
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: frame-difference
+        #num_target_frames: 18
+        #frame_size: 224
+
+    validation:
+        <<: *common   # reinsert 'train' block content
+
+optim:
+    loss:
+        _target_: torch.nn.BCEWithLogitsLoss

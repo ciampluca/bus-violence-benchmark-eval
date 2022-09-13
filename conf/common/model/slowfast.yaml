@@ -1,0 +1,11 @@
+# @package model
+
+defaults:
+  - common
+
+name: SlowFast
+module:
+  _target_: models.SlowFast
+  cache_folder: ${cache_folder}
+  model_pretrained: true    # on Kinetics-400
+  out_channels: 1

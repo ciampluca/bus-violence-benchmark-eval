@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+  - /common: default
+  - /common/data: surveillance-camera-fight
+  - /common/optim: default
+
+optim:
+    batch_size: 4
+    batch_accumulation: 2
+    num_workers: 4
+
+    lr_scheduler:
+        _target_: torch.optim.lr_scheduler.StepLR
+        step_size: 15
+
+    epochs: 40
+

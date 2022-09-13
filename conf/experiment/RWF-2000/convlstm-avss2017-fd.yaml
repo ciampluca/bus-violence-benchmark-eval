@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+ - RWF-2000/common
+ - /common/model: convLSTM-AVSS2017
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: frame-difference
+        frame_size: 224
+
+    validation:
+        <<: *common   # reinsert 'train' block content
+
+optim:
+    batch_size: 4
+    batch_accumulation: 2

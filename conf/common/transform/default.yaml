@@ -1,0 +1,32 @@
+# @package _global_
+
+data:
+    train:
+        transforms:
+            _target_: torchvision.transforms.Compose
+            _args_:
+                - - _target_: torchvision.transforms._transforms_video.ToTensorVideo
+                  - _target_: torchvision.transforms._transforms_video.RandomHorizontalFlipVideo
+                  - _target_: torchvision.transforms._transforms_video.NormalizeVideo
+                    mean:
+                    - 0.45
+                    - 0.45
+                    - 0.45
+                    std:
+                    - 0.225
+                    - 0.225
+                    - 0.225
+    validation:
+        transforms:
+            _target_: torchvision.transforms.Compose
+            _args_:
+                - - _target_: torchvision.transforms._transforms_video.ToTensorVideo
+                  - _target_: torchvision.transforms._transforms_video.NormalizeVideo
+                    mean:
+                    - 0.45
+                    - 0.45
+                    - 0.45
+                    std:
+                    - 0.225
+                    - 0.225
+                    - 0.225
