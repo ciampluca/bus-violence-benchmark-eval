@@ -7,6 +7,8 @@ from omegaconf import OmegaConf
 import torch
 from torch.utils.data import DataLoader
 
+from train_fn import predict
+
 
 log = logging.getLogger(__name__)
 
@@ -56,7 +58,6 @@ def main(args):
     outdir = (run_path / 'test_predictions') if args.save else None
         
     # make predictions
-    predict = hydra.utils.get_method(f'methods.{cfg.method}.train_fn.predict')
     predict(test_loader, model, device, cfg, outdir, debug=args.debug, csv_file_name=csv_file_name)
     
 
