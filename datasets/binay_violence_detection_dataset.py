@@ -51,7 +51,7 @@ class BinaryViolenceDetectionDataset(Dataset):
         self.root = Path(root)
         
         self.split = split
-        self.split_seed = None
+        self.split_seed = split_seed
         self.num_train_val_samples = num_train_val_samples
         self.num_test_samples = num_test_samples
         self.target = target
@@ -123,8 +123,6 @@ class BinaryViolenceDetectionDataset(Dataset):
         resize=(224, 224), 
         num_target_frames=64, 
         crop_black_borders=False, 
-        to_tensor=True, 
-        sampling=True,
     ):  
         # Load video and extract frames
         cap = cv2.VideoCapture(video_path.as_posix())
@@ -147,11 +145,10 @@ class BinaryViolenceDetectionDataset(Dataset):
             cap.release()
             
         # Sampling
-        if sampling:
-            frames = self._uniform_sampling(frames, num_target_frames)
+        frames = self._uniform_sampling(frames, num_target_frames)
             
-        if to_tensor:
-            frames = torch.from_numpy(frames)
+        # Converting to tensor
+        frames = torch.from_numpy(frames)
             
         return frames
     
