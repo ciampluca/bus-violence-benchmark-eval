@@ -7,6 +7,7 @@ torchvision
 hydra-core==1.1.1
 omegaconf
 tensorboard
+fvcore
 mmcv==1.3.11
 einops==0.3.0
 timm==0.4.12
