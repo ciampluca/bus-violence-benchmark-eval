@@ -1,0 +1,17 @@
+# @package _global_
+
+defaults:
+ - real-life-violence/common
+ - /common/model: slowfast
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: rgb
+
+    validation:
+        <<: *common   # reinsert 'train' block content
+
+model:
+    module:
+        model_pretrained: false

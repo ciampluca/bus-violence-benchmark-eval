@@ -1,0 +1,23 @@
+# @package _global_
+
+defaults:
+ - real-life-violence/common
+ - /common/model: resnet3d18
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: rgb
+
+    validation:
+        <<: *common   # reinsert 'train' block content
+
+optim:
+    loss:
+        _target_: torch.nn.BCEWithLogitsLoss
+
+model:
+    module:
+        model_pretrained: false
+
+        

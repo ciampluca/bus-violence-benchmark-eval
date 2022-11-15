@@ -1,0 +1,28 @@
+# @package _global_
+
+defaults:
+ - real-life-violence/common
+ - /common/model: videoswintransformer-k400
+ - /common/transform: default
+
+data:
+    train: &common
+        mode: rgb
+
+        # Swin Transformers are quite heavy, so override the default frame size and number of frames
+        frame_size: 224
+        num_target_frames: 32
+
+    validation:
+        <<: *common   # reinsert 'train' block content
+
+optim:
+    # Swin Transformers are quite heavy, so override the default batch size (but increase batch accumulation)
+    batch_size: 2
+    batch_accumulation: 4
+
+model:
+    module:
+        model_pretrained: false
+
+        
