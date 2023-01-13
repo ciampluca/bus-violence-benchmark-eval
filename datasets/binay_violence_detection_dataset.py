@@ -57,7 +57,7 @@ class BinaryViolenceDetectionDataset(Dataset):
         self.target = target
         self.transforms = transforms
         self.mode = mode
-        self.frame_difference = True if mode == 'frame_difference' else False
+        self.frame_difference = True if mode == 'frame-difference' else False
 
         self.in_memory = in_memory
         
@@ -205,7 +205,7 @@ def main():
     std = [0.225, 0.225, 0.225]
     num_frames = 64
     
-    mode = "rgb"    # rgb or frame-difference
+    mode = "frame-difference"    # rgb or frame-difference
     denormalize = True
 
     transforms = Compose([
